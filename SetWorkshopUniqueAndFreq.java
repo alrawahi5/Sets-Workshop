@@ -1,18 +1,24 @@
 import java.lang.*;
 import java.util.*;
 
-public class SetWorkshopUniqueAndFreq{
+public class SetWorkshopUniqueAndFreq {
     public static void main(String[] args) {
-        List<Integer> num1 = new ArrayList<Integer>();
-        Set<Integer> num2 = new HashSet<Integer>();
-        num1.addAll(Arrays.asList(1, 2, 3, 3));
-        for(int i = 0; i<num1.size(); i++) {
-            num2.addAll(Arrays.asList(num1.get(i)));
-            if(num1.get(i) == i){
-                System.out.println(i + " is a duplicate element");
+        List<Integer> numList = new ArrayList<Integer>();
+        Set<Integer> numSet = new HashSet<Integer>();
+        numList.addAll(Arrays.asList(1, 2, 3, 3, 1));
+        numSet.addAll(numList);
+
+        for (Integer setElement : numSet) {
+            Integer count = 0;
+            for(Integer listElement: numList) {
+                if(setElement.equals(listElement)){
+                    count++;
+                }
             }
+            System.out.println(setElement + " exists "
+            + count + " times");
         }
-        System.out.println("The List contains: " + num1);
-        System.out.println("The set contains: "+ num2);
+        System.out.println("The List contains: " + numList);
+        System.out.println("The set contains: " + numSet);
     }
 }
